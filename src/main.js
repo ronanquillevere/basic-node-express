@@ -1,5 +1,16 @@
-import {Person} from './person';
+import express from 'express';
+import { Person } from './person';
 
-let ronan = new Person('ronan');
+//const express = require('express');
 
-console.log(`Hello  ${ronan.getName()}`);
+// Constants
+const PORT = 8080;
+
+// App
+const app = express();
+app.get('/', function (req, res) {
+  res.send(new Person('ronan'));
+});
+
+app.listen(PORT);
+console.log('Running on http://localhost:' + PORT);
